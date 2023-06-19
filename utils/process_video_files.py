@@ -3,7 +3,7 @@ import argparse
 import ultralytics
 
 # Парсер аргументов командной строки
-parser = argparse.ArgumentParser(description="🐓 HikvisionCameraRemux")
+parser = argparse.ArgumentParser(description="🐓 YOLOv8VideoProcessing")
 
 # Добавляем аргумент директории
 parser.add_argument(

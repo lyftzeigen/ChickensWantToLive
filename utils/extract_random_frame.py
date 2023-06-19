@@ -6,7 +6,7 @@ import random
 import argparse
 
 # Парсер аргументов командной строки
-parser = argparse.ArgumentParser(description="🐓 VRandomFrameExtractor")
+parser = argparse.ArgumentParser(description="🐓 RandomFrameExtractor")
 
 # Добавляем аргумент директории
 parser.add_argument(
