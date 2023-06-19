@@ -18,7 +18,7 @@ model = ultralytics.YOLO(os.path.join("weights", "yolov8n.pt"))
 # Запукаем обучение модели
 model.train(
     batch=16,
-    epochs=2,
+    epochs=100,
     imgsz=640,
     data=os.path.join("datasets", "data.yaml"),
     project="training",
