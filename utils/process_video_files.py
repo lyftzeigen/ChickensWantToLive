@@ -1,7 +1,7 @@
 import os
-import tqdm
 import argparse
 import ultralytics
+from tqdm import tqdm
 
 # Парсер аргументов командной строки
 parser = argparse.ArgumentParser(description="🐓 YOLOv8VideoProcessing")
@@ -56,5 +56,6 @@ detections = os.path.join("processing", args.directory, "detections.txt")
 
 # Открываем файл и записываем в него результаты детекции
 with open(detections, "w") as file:
+    print(f"\nЗапись обработанных данных в файл '{detections}'\n")
     for r in tqdm(predict):
         file.write(f"{len(r.boxes)}\n")
