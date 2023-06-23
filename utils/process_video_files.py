@@ -1,4 +1,5 @@
 import os
+import tqdm
 import argparse
 import ultralytics
 
@@ -47,7 +48,7 @@ predict = model.predict(
     save=False,
     show_labels=False,
     show_conf=False,
-    verbose=True,
+    verbose=False,
 )
 
 # Файл с количеством детекций для каждого кадра
@@ -55,5 +56,5 @@ detections = os.path.join("processing", args.directory, "detections.txt")
 
 # Открываем файл и записываем в него результаты детекции
 with open(detections, "w") as file:
-    for r in predict:
+    for r in tqdm(predict):
         file.write(f"{len(r.boxes)}\n")

@@ -41,7 +41,7 @@ async def extract_frame(semaphore):
     async with semaphore:
         process = await asyncio.create_subprocess_exec(
             "python3",
-            "extract_random_frame.py",
+            "utils/extract_random_frame.py",
             args.directory,
         )
 
