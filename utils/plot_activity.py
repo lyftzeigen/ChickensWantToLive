@@ -44,7 +44,7 @@ frames_per_second = 30
 split_data = numpy.array_split(data, len(data) // (frames_per_second * time_interval))
 
 # Реальное время начала съемки
-start_date_time = datetime.datetime(2023, 6, 9, 0, 1, 0)
+start_date_time = datetime.datetime(2023, 5, 17, 0, 0, 0)
 
 # Временные интервалы для отображения на графике
 split_data_timestamps = [
@@ -69,7 +69,7 @@ hours = seconds // 3600
 minutes = (seconds % 3600) // 60
 seconds = (seconds % 3600) % 60
 
-fig, ax = matplotlib.pyplot.subplots(dpi=300, figsize=(23, 5))
+fig, ax = matplotlib.pyplot.subplots(dpi=300, figsize=(20, 5))
 
 ax.set_title(f"Активность птицы за {hours:02d}:{minutes:02d}:{seconds:02d}")
 ax.set_ylabel("Активность")
@@ -127,7 +127,10 @@ matplotlib.pyplot.gcf().autofmt_xdate()
 # Файл с графиком активности
 filename = os.path.join("processing", args.directory, "activity.png")
 
+# Уплотняем график
+fig.tight_layout()
+
 # Сохраняем график
 fig.savefig(filename)
 
-print(f"\n🥵 Готово! Активность курочек можно посмотреть в файле '{filename}'")
+print(f"🥵 Готово! Активность курочек можно посмотреть в файле '{filename}'")
