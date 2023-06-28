@@ -30,6 +30,11 @@ print(f"🚀 Чтение даных 'procerssing/{args.directory}'...\n")
 # Файл с детекциями
 filename = os.path.join("processing", args.directory, "detections.txt")
 
+# Проверка наличия файла
+if not os.path.isfile(filename):
+    print(f"😡 Файл отсутствует '{filename}'...\n")
+    exit()
+
 # Чтение данных
 data = []
 
