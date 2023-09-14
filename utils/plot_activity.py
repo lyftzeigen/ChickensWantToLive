@@ -49,7 +49,7 @@ frames_per_second = 30
 split_data = numpy.array_split(data, len(data) // (frames_per_second * time_interval))
 
 # Реальное время начала съемки
-start_date_time = datetime.datetime(2023, 5, 17, 0, 0, 0)
+start_date_time = datetime.datetime(2023, 7, 30, 10, 30, 0)
 
 # Временные интервалы для отображения на графике
 split_data_timestamps = [

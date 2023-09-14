@@ -26,7 +26,7 @@ if not os.path.isdir(os.path.join("remuxed", args.directory)):
     os.makedirs(os.path.join("remuxed", args.directory))
 
 # Путь к весам модели
-weights = os.path.join("training", "take", "weights", "best.engine")
+weights = os.path.join("weights", "yolov8n.engine")
 
 # Завершение работы при отсутствии весов
 if not os.path.exists(weights):
@@ -57,5 +57,8 @@ detections = os.path.join("processing", args.directory, "detections.txt")
 # Открываем файл и записываем в него результаты детекции
 with open(detections, "w") as file:
     print(f"\nЗапись обработанных данных в файл '{detections}'\n")
-    for r in tqdm(predict):
-        file.write(f"{len(r.boxes)}\n")
+    for index, prediction in enumerate(tqdm(predict)):
+        # Запись данных в файл
+        file.write(f"{len(prediction.boxes)}\n")
+        if index % 100 == 0:
+            file.flush()
