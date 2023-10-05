@@ -87,3 +87,7 @@ python3 utils/extract_frames.py 01.06.2023 1000
 ![ChickenActivity](sample1.png "Активность курочек")
 
 ![ChickenActivity](sample2.png "Активность курочек")
+
+Шаблон интерфейса модели прогнозирования продукции.
+
+![ChickenActivity](sample3.png "Прогнозирование продукции")
