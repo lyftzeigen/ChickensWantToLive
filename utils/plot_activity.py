@@ -67,6 +67,14 @@ split_data_median = skimage.filters.gaussian(split_data_median, 2)
 split_data_median_plus = skimage.filters.gaussian(split_data_median_plus, 2)
 split_data_median_minus = skimage.filters.gaussian(split_data_median_minus, 2)
 
+# Наибольшее значение
+split_data_max_value = numpy.max(split_data_median_plus)
+
+# Нормализация данных
+split_data_median = split_data_median / split_data_max_value
+split_data_median_plus = split_data_median_plus / split_data_max_value
+split_data_median_minus = split_data_median_minus / split_data_max_value
+
 # Расчет временных параметров
 frames = len(data)
 seconds = frames // 30
@@ -74,7 +82,7 @@ hours = seconds // 3600
 minutes = (seconds % 3600) // 60
 seconds = (seconds % 3600) % 60
 
-fig, ax = matplotlib.pyplot.subplots(dpi=300, figsize=(20, 5))
+fig, ax = matplotlib.pyplot.subplots(dpi=300, figsize=(20, 3.5))
 
 ax.set_title(f"Активность птицы за {hours:02d}:{minutes:02d}:{seconds:02d}")
 ax.set_ylabel("Активность")
@@ -123,8 +131,8 @@ ax.legend(
     loc="upper right",
 )
 
-ax.xaxis.set_major_locator(matplotlib.ticker.MultipleLocator(1 / 24 / 2))
-ax.xaxis.set_minor_locator(matplotlib.ticker.MultipleLocator(1 / 24 / 12))
+ax.xaxis.set_major_locator(matplotlib.ticker.MultipleLocator(1 / 24 / 2 * 2))
+ax.xaxis.set_minor_locator(matplotlib.ticker.MultipleLocator(1 / 24 / 6))
 ax.xaxis.set_major_formatter(matplotlib.dates.DateFormatter("%H:%M"))
 
 matplotlib.pyplot.gcf().autofmt_xdate()
